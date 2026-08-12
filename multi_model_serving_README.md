@@ -80,8 +80,6 @@ The serving system therefore has to balance model availability against available
 
 ## Architecture
 
-<!-- ARCHITECTURE DIAGRAM PLACEHOLDER -->
-
 ![Model Serving Architecture + LRU Cache Behavior](docs/architecture.png)
 
 The architecture above shows the main components and, more importantly, what happens when a request causes an LRU eviction.
@@ -273,8 +271,14 @@ NEGATIVE
 POSITIVE
 ```
 
-The Triton configurations also enable dynamic batching and configure GPU model instances.
+### Dynamic Batching
 
+The Triton models are configured with dynamic batching. Incoming inference
+requests can be grouped together and executed as a batch, allowing Triton to
+make better use of the GPU when multiple requests arrive close together.
+
+The current configuration uses preferred batch sizes of 4 and 8, with a
+maximum queue delay of 1 ms.
 
 ## Running the project
 
