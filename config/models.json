@@ -1,0 +1,43 @@
+{
+  "models": [
+    {
+      "id": "8ba7b810-9dad-11d1-80b4-00c04fd430c9",
+      "name": "distilbert_sst2",
+      "type": "text",
+      "framework": "triton",
+      "version": "1.0.0",
+      "description": "DistilBERT sentiment classifier served through NVIDIA Triton",
+      "tokenizer": "distilbert-base-uncased-finetuned-sst-2-english",
+      "max_sequence_length": 128,
+      "labels": ["NEGATIVE", "POSITIVE"]
+    },
+    {
+      "id": "9ca8c921-9dad-11d1-80b4-00c04fd430d0",
+      "name": "distilbert_sst2_b",
+      "type": "text",
+      "framework": "triton",
+      "version": "1.0.0",
+      "description": "Second Triton-served DistilBERT model",
+      "tokenizer": "distilbert-base-uncased-finetuned-sst-2-english",
+      "max_sequence_length": 128,
+      "labels": [
+        "NEGATIVE",
+        "POSITIVE"
+      ]
+    },
+    {
+      "id": "acb9d032-9dad-11d1-80b4-00c04fd430d1",
+      "name": "distilbert_sst2_c",
+      "type": "text",
+      "framework": "triton",
+      "version": "1.0.0",
+      "description": "Third Triton-served DistilBERT model",
+      "tokenizer": "distilbert-base-uncased-finetuned-sst-2-english",
+      "max_sequence_length": 128,
+      "labels": [
+        "NEGATIVE",
+        "POSITIVE"
+      ]
+    }
+  ]
+}

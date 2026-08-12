@@ -1,0 +1,40 @@
+name: "distilbert_sst2"
+
+platform: "onnxruntime_onnx"
+
+max_batch_size: 8
+
+input [
+  {
+    name: "input_ids"
+    data_type: TYPE_INT64
+    dims: [128]
+  },
+  {
+    name: "attention_mask"
+    data_type: TYPE_INT64
+    dims: [128]
+  }
+]
+
+output [
+  {
+    name: "logits"
+    data_type: TYPE_FP32
+    dims: [2]
+  }
+]
+
+dynamic_batching {
+    preferred_batch_size: [4, 8]
+    max_queue_delay_microseconds: 1000
+}
+instance_group [
+  {
+    count: 2
+    kind: KIND_GPU
+    gpus: [ 0 ]
+  }
+]
+
+
